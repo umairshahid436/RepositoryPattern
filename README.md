@@ -27,3 +27,8 @@ PackagedServiceCalculation
 These two service will calculate the annual cost of product.
 
 ```
+### Unit Test
+
+```
+To test calculation service, unit test has been written under XUnitTest
+```
