@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TariffComparison.Business.Model\TariffComparison.Business.Model.csproj" />
+    <ProjectReference Include="..\TariffComparison.Data\TariffComparison.Data.csproj" />
+  </ItemGroup>
+
+</Project>

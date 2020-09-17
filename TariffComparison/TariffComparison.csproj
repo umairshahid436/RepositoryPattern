@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TariffComparison.Business.Interface\TariffComparison.Business.Interface.csproj" />
+    <ProjectReference Include="..\TariffComparison.Business.Model\TariffComparison.Business.Model.csproj" />
+    <ProjectReference Include="..\TariffComparison.Business.Service\TariffComparison.Business.Service.csproj" />
+    <ProjectReference Include="..\TariffComparison.Infrastructure.DI\TariffComparison.Infrastructure.DI.csproj" />
+  </ItemGroup>
+
+
+</Project>
