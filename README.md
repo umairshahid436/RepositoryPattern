@@ -4,6 +4,7 @@
 ```
  C#
 .Net Core (3.1)
+ Entity Framework (Code first)
  SQL Server
 ```
 
