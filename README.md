@@ -11,7 +11,7 @@
 ### Calculation Models
 
 ```
-Two different types of calculations performed for an annual cost. In order to achieve that two services created in the service layer with the name
+Two different types of calculations performed for an annual cost. In order to achieve that two services created in the service layer
 
 BasicServicecalculation
 PackagedServiceCalculation
