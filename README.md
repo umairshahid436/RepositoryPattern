@@ -4,29 +4,82 @@
 ```
  C#
 .Net Core (3.1)
+ Entity Framework (Code first)
  SQL Server
+```
+
+### Calculation Models
+
+```
+Two different types of calculations performed for an annual cost. In order to achieve that two services created in the service layer
+
+BasicAnnualCostCalculationService
+PackagedAnnualCostCalculationService
+
+These two services will calculate the annual cost of the product
+
 ```
 
 ### RESTful Service
 ```
-As per instructions, in this project RESTFUl service has been created.
+As per instructions, in this project, RESTful service has been created.
 
 Get: https://localhost:44385/api/product/
-This will return all product in ascending order based on annual cost.
+This will return all products in below format
+{
+    "success": true,
+    "data": [    
+        {
+            id: 15,
+            unit: "KWh",
+            tariffName: "basic electricity tariff”",
+            packageType: "basic",
+            consumption: 6000,
+            annualCost: 1380
+        }
+    ],
+    "message": "success",
+    "total": 1
+}
+
+Post: https://localhost:44385/api/product/
+This will take the following model as input, calculate the annual cost based on packaged type and store data. 
+{
+    "TariffName": "name",
+    "PackageType": "Packaged",
+    "Consumption": 6000
+}
+
+Following are the two types of the packaged type which used to perform desire calculation
+"Basic"
+"Packaged"
 ```
 
-
-### Description
-
+### Comparison 
 ```
-Two different type of calculations performed for annual cost. In order achive that two services created in service layer with name
+Comparison service has been created in the service layer which will take consumption as input and calculate the annual cost, create a list of products and return that list in ascending order according to the annual cost.
 
-BasicServicecalculation
-PackagedServiceCalculation
+Get: https://localhost:44385/api/product/Comparison?consumption=6000
 
-These two service will calculate the annual cost of product.
+Output: 
 
+{
+   success: true,
+   data: [
+           {
+             tariffName: "basic electricity tariff”",
+             annualCost: "1380 €/Year"
+           },
+           {
+              tariffName: "Packaged tariff",
+              annualCost: "1400 €/Year"
+           }
+   ],
+   message: "success",
+   total: 2
+}
 ```
+
 ### Unit Test
 
 ```
