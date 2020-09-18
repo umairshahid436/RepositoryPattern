@@ -33,7 +33,7 @@ This will return all products in below format
           id: 1,
           tariffName: "packaged tariff”",
           packageType: "Packaged",
-          consumption: 6000,
+          consumption: 6000 /KWh,
           annualCost: "1400 €/Year"
          }
     ],
