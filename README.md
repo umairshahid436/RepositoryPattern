@@ -7,6 +7,18 @@
  SQL Server
 ```
 
+### Calculation Models
+
+```
+Two different type of calculations performed for annual cost. In order achive that two services created in service layer with name
+
+BasicServicecalculation
+PackagedServiceCalculation
+
+These two service will calculate the annual cost of product.
+
+```
+
 ### RESTful Service
 ```
 As per instructions, in this project RESTFUl service has been created.
@@ -41,18 +53,6 @@ Following are the two types of packaged type which used to perform desire calcul
 "Packaged"
 ```
 
-
-### Calculation Models
-
-```
-Two different type of calculations performed for annual cost. In order achive that two services created in service layer with name
-
-BasicServicecalculation
-PackagedServiceCalculation
-
-These two service will calculate the annual cost of product.
-
-```
 ### Unit Test
 
 ```
