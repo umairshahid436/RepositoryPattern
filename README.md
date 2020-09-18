@@ -12,7 +12,21 @@
 As per instructions, in this project RESTFUl service has been created.
 
 Get: https://localhost:44385/api/product/
-This will return all products.
+This will return all products in below format
+{
+    "success": true,
+    "data": [    
+        {
+            "id": 14,
+            "tariffName": "packaged tariff”",
+            "packageType": "Packaged",
+            "consumption": 6000,
+            "annualCost": 1400
+        }
+    ],
+    "message": "success",
+    "total": 1
+}
 
 Post: https://localhost:44385/api/product/
 This will take following model as input, calculate the annual cost based on packged type and store data. 
