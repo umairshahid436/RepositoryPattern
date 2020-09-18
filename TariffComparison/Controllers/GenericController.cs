@@ -29,18 +29,5 @@ namespace TariffComparison.Controllers
             }
         }
 
-        [HttpPost]
-        public virtual async Task<ObjectResult> Post([FromBody]TBusinessModel model)
-        {
-            try
-            {
-                var obj = await genericService.Add(model);
-                return new OkObjectResult(BaseModel.Create(success: true, data: null, total: 1, message: "success"));
-            }
-            catch (Exception ex)
-            {
-                return new NotFoundObjectResult(BaseModel.Create(success: false, data: null, total: 0, message: ex.Message));
-            }
-        }
     }
 }

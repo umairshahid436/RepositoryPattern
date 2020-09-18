@@ -1,4 +1,8 @@
-﻿using TariffComparison.Data.Interface;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using TariffComparison.Data.Interface;
 using TariffComparison.Data.Model;
 
 namespace TariffComparison.Data.Repository
@@ -11,7 +15,10 @@ namespace TariffComparison.Data.Repository
         {
             _context = dbContext;
         }
-
+        public override async Task<List<Product>> Get()
+        {
+            return await _context.Products.AsQueryable().OrderBy(x=>x.AnnualCost).ToListAsync();
+        }
 
     }
 }

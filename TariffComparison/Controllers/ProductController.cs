@@ -11,19 +11,17 @@ namespace TariffComparison.Controllers
     public class ProductController : GenericController<Product, Data.Model.Product, int>
     {
         private readonly IProductService _productService;
-        private readonly IComparisonService _comparisonService;
 
-        public ProductController(IProductService productService, IComparisonService comparisonService) : base(productService)
+        public ProductController(IProductService productService) : base(productService)
         {
             _productService = productService;
-            _comparisonService = comparisonService;
         }
         [HttpGet]
         public override async Task<ObjectResult> Get()
         {
             try
             {
-                var products = await _productService.Get();
+                var products = await _productService.GetAllProducts();
                 return new OkObjectResult(BaseModel.Create(success: true, data: products, total: products.Count, message: "success"));
             }
             catch (Exception ex)
@@ -37,7 +35,7 @@ namespace TariffComparison.Controllers
         {
             try
             {
-                var data = await _comparisonService.Comparison(consumption);
+                var data = await _productService.Comparison(consumption);
                 return new OkObjectResult(BaseModel.Create(success: true, data, total: data.Count, message: "success"));
             }
             catch (Exception ex)

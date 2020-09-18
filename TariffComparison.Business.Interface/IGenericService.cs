@@ -7,6 +7,6 @@ namespace TariffComparison.Business.Interface
     {
         Task<List<TBusinessModel>> Get();
         Task<TBusinessModel> Add(TBusinessModel entity);
-
+        Task Add(List<TBusinessModel> businessEntities);
     }
 }

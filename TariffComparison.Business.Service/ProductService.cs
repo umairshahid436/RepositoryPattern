@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TariffComparison.Business.Interface;
 using TariffComparison.Business.Model;
@@ -19,22 +20,57 @@ namespace TariffComparison.Business.Service
             _consumptionCalculatorDelegate = consumptionCalculatorDelegate;
         }
 
-        public override async Task<Product> Add(Product model)
+        public async Task<List<ProductNameWithCost>> GetAllProducts()
         {
-            CustomEnum.CalculationModel type = Utills.ParseEnum<CustomEnum.CalculationModel>(model.PackageType);
-            IAnnualCostCalculator consCal = _consumptionCalculatorDelegate(type);
-            double cost = consCal.Calculate(model.Consumption);
-            model.AnnualCost = cost;
-            var dataEntity = _mapper.Map<Product, Data.Model.Product>(model);
-
-            dataEntity = await _productRepository.Add(dataEntity);
-            if (_unitOfWork != null)
+            var dataEntities = await _repository.Get();
+            var businessEntities = _mapper.Map<List<Data.Model.Product>, List<Product>>(dataEntities);
+            return await WrapData(businessEntities);
+        }
+        public async Task<List<ProductNameWithCost>> Comparison(int consumption)
+        {
+            // List to hold products
+            List<Product> productList = new List<Product>();
+            if (consumption > 0)
             {
-                await _unitOfWork.SaveChangesAsync();
+                //Two products
+                const string ProductA = "basic electricity tariff”";
+                const string ProductB = "Packaged tariff";
+
+                // Calculate annual cost
+                double CostofProductA = _consumptionCalculatorDelegate(CustomEnum.CalculationModel.Basic).Calculate(consumption);
+                double CostofProducctB = _consumptionCalculatorDelegate(CustomEnum.CalculationModel.Packaged).Calculate(consumption);
+
+                productList.Add(new Product { AnnualCost = CostofProductA, TariffName = ProductA });
+                productList.Add(new Product { AnnualCost = CostofProducctB, TariffName = ProductB });
+
+                // Save data into database
+                await _productRepository.Add(_mapper.Map<List<Product>, List<Data.Model.Product>>(productList));
+                if (_unitOfWork != null)
+                {
+                    await _unitOfWork.SaveChangesAsync();
+                }
+
             }
-            return _mapper.Map<Data.Model.Product, Product>(dataEntity);
+            return await WrapData(productList);
         }
 
-
+        #region Private Methods
+        private async Task<List<ProductNameWithCost>> WrapData(List<Product> products)
+        {
+            List<ProductNameWithCost> data = new List<ProductNameWithCost>();
+            if (products.Count > 0)
+            {
+                foreach (var item in products)
+                {
+                    data.Add(new ProductNameWithCost()
+                    {
+                        TariffName = item.TariffName,
+                        AnnualCost = $"{item.AnnualCost} €/Year"
+                    });
+                }
+            }
+            return await Task.Run(() => data);
+        }
+        #endregion
     }
 }

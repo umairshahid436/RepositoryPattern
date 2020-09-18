@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace TariffComparison.Data.Interface
@@ -9,7 +7,8 @@ namespace TariffComparison.Data.Interface
     {
         Task<List<TEntity>> Get();
         Task<TEntity> Add(TEntity entity);
-        
+        Task Add(List<TEntity> entities);
+
 
     }
 }

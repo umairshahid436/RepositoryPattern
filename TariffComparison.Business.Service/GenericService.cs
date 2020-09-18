@@ -19,8 +19,15 @@ namespace TariffComparison.Business.Service
             _unitOfWork = unitOfWork;
         }
 
+        public virtual async Task<List<TBusinessModel>> Get()
+        {
+            var dataEntities = await _repository.Get();
+            var businessEntities = _mapper.Map<List<TDataModel>, List<TBusinessModel>>(dataEntities);
+            return businessEntities;
+        }
         public virtual async Task<TBusinessModel> Add(TBusinessModel businessEntity)
         {
+
             var dataEntity = _mapper.Map<TBusinessModel, TDataModel>(businessEntity);
             dataEntity = await _repository.Add(dataEntity);
             if (_unitOfWork != null)
@@ -30,12 +37,14 @@ namespace TariffComparison.Business.Service
             businessEntity = _mapper.Map<TDataModel, TBusinessModel>(dataEntity);
             return businessEntity;
         }
-
-        public virtual async Task<List<TBusinessModel>> Get()
+        public virtual async Task Add(List<TBusinessModel> businessEntities)
         {
-            var dataEntities = await _repository.Get();
-            var businessEntities = _mapper.Map<List<TDataModel>, List<TBusinessModel>>(dataEntities);
-            return businessEntities;
+            var dataEntities = _mapper.Map<List<TBusinessModel>, List<TDataModel>>(businessEntities);
+            await _repository.Add(dataEntities);
+            if (_unitOfWork != null)
+            {
+                await _unitOfWork.SaveChangesAsync();
+            }
         }
 
 
