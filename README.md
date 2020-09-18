@@ -21,7 +21,7 @@ These two service will calculate the annual cost of product.
 
 ### RESTful Service
 ```
-As per instructions, in this project RESTFUl service has been created.
+As per instructions, in this project RESTful service has been created.
 
 Get: https://localhost:44385/api/product/
 This will return all products in below format
@@ -51,6 +51,10 @@ This will take following model as input, calculate the annual cost based on pack
 Following are the two types of packaged type which used to perform desire calculation
 "Basic"
 "Packaged"
+```
+
+### Comparison 
+```
 ```
 
 ### Unit Test
