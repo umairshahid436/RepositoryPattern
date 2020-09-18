@@ -30,12 +30,13 @@ This will return all products in below format
     "success": true,
     "data": [    
         {
-          id: 1,
-          tariffName: "packaged tariff”",
-          packageType: "Packaged",
-          consumption: 6000 /KWh,
-          annualCost: "1400 €/Year"
-         }
+            id: 15,
+            unit: "KWh",
+            tariffName: "basic electricity tariff”",
+            packageType: "basic",
+            consumption: 6000,
+            annualCost: 1380
+        }
     ],
     "message": "success",
     "total": 1
