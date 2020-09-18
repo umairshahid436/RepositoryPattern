@@ -13,8 +13,8 @@
 ```
 Two different types of calculations performed for an annual cost. In order to achieve that two services created in the service layer
 
-BasicServicecalculation
-PackagedServiceCalculation
+BasicAnnualCostCalculationService
+PackagedAnnualCostCalculationService
 
 These two services will calculate the annual cost of the product
 
