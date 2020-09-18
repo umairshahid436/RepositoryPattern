@@ -3,7 +3,7 @@ using TariffComparison.Infrastructure.Common;
 
 namespace TariffComparison.Business.Service
 {
-    public class PackagedConsumptionCalculationService : IConsumptionCalculator
+    public class PackagedAnnualCostCalculationService : IAnnualCostCalculator
     {
         private const int BaseCost = 800;
         private const int ConsumptionLimit = 4000;

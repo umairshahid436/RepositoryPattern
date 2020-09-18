@@ -12,14 +12,15 @@ namespace TariffComparison.Infrastructure.DI
         public static void Configure(IServiceCollection services)
         {
             services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<BasicConsumptionCalculationService>();
-            services.AddScoped<PackagedConsumptionCalculationService>();
-            services.AddScoped<Func<CustomEnum.CalculationModel, IConsumptionCalculator>>(serviceProvider => key =>
+            services.AddScoped<IComparisonService, ComparisonService>();
+            services.AddScoped<BasicAnnualCostCalculationService>();
+            services.AddScoped<PackagedAnnualCostCalculationService>();
+            services.AddScoped<Func<CustomEnum.CalculationModel, IAnnualCostCalculator>>(serviceProvider => key =>
             {
                 return key switch
                 {
-                    CustomEnum.CalculationModel.Basic => serviceProvider.GetService<BasicConsumptionCalculationService>(),
-                    CustomEnum.CalculationModel.Packaged => serviceProvider.GetService<PackagedConsumptionCalculationService>(),
+                    CustomEnum.CalculationModel.Basic => serviceProvider.GetService<BasicAnnualCostCalculationService>(),
+                    CustomEnum.CalculationModel.Packaged => serviceProvider.GetService<PackagedAnnualCostCalculationService>(),
                     _ => throw new KeyNotFoundException(),
                 };
             });

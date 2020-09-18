@@ -2,7 +2,7 @@
 
 namespace TariffComparison.Business.Interface
 {
-    public interface IConsumptionCalculator
+    public interface IAnnualCostCalculator
     {
         bool Type(CustomEnum.CalculationModel type);
         double Calculate(int Consumption);

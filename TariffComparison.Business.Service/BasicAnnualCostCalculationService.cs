@@ -3,7 +3,7 @@ using TariffComparison.Infrastructure.Common;
 
 namespace TariffComparison.Business.Service
 {
-    public class BasicConsumptionCalculationService : IConsumptionCalculator
+    public class BasicAnnualCostCalculationService : IAnnualCostCalculator
     {
         private const int BaseCostPerMonth = 5;
         private const int NoOfMonths = 12;

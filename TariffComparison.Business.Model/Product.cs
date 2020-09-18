@@ -5,6 +5,7 @@ namespace TariffComparison.Business.Model
     public class Product
     {
         public int Id { get; set; }
+        public string Unit { get; set; } = "KWh";
 
         [Required(ErrorMessage = "Product name is required")]
         public string TariffName { get; set; }

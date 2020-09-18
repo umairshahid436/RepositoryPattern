@@ -3,12 +3,12 @@ using Xunit;
 
 namespace XUnitTest
 {
-    public class PackagedCalculationServiceTest
+    public class PackagedAnnualCostTest
     {
-        private PackagedConsumptionCalculationService _service;
-        public PackagedCalculationServiceTest()
+        private PackagedAnnualCostCalculationService _service;
+        public PackagedAnnualCostTest()
         {
-            _service = new PackagedConsumptionCalculationService();
+            _service = new PackagedAnnualCostCalculationService();
         }
         [Fact]
         public void BasicCal3500()

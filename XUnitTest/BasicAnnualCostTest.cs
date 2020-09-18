@@ -1,18 +1,14 @@
-using System;
-using System.Collections.Generic;
-using TariffComparison.Business.Interface;
 using TariffComparison.Business.Service;
-using TariffComparison.Infrastructure.Common;
 using Xunit;
 
 namespace XUnitTest
 {
-    public class BasicCalculationServiceTest
+    public class BasicAnnualCostTest
     {
-        private BasicConsumptionCalculationService _service;
-        public BasicCalculationServiceTest()
+        private BasicAnnualCostCalculationService _service;
+        public BasicAnnualCostTest()
         {
-            _service = new BasicConsumptionCalculationService();
+            _service = new BasicAnnualCostCalculationService();
         }
 
         [Fact]
