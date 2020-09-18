@@ -12,11 +12,23 @@
 As per instructions, in this project RESTFUl service has been created.
 
 Get: https://localhost:44385/api/product/
-This will return all product in ascending order based on annual cost.
+This will return all products.
+
+Post: https://localhost:44385/api/product/
+This will take following model as input, calculate the annual cost based on packged type and store data. 
+{
+    "TariffName": "name",
+    "PackageType": "Packaged",
+    "Consumption": 6000
+}
+
+Following are the two types of packaged type which used to perform desire calculation
+"Basic"
+"Packaged"
 ```
 
 
-### Description
+### Calculation Models
 
 ```
 Two different type of calculations performed for annual cost. In order achive that two services created in service layer with name
