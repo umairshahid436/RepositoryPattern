@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="jid5stzc.aa5~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastMember" Version="1.5.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+    <PackageReference Include="System.Data.Odbc" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Booteq.Infrastructure.Common\Booteq.Infrastructure.Common.csproj" />
+    <ProjectReference Include="..\BooteqPointOfSale.Data.Interfaces\BooteqPointOfSale.Data.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Booteq.Entities\Booteq.Entities.csproj" />
+    <ProjectReference Include="..\BooteqPointOfSale.Business.Interface\BooteqPointOfSale.Business.Interfaces.csproj" />
+    <ProjectReference Include="..\BooteqPointOfSale.Data.Interfaces\BooteqPointOfSale.Data.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>
