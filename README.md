@@ -1,6 +1,6 @@
 ## Repository Pattern
-- with EF
-- with ADO.NET
+- using EF (Code First)
+- using ADO.NET
 
 ## Technology Stack
 - C#
